@@ -4,7 +4,7 @@ import logo from '../../assets/images/cups/logo.png';
 const Navbar = () => {
     const navItem = <>
         <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/addproduct">Add Product</NavLink></li>
+        <li className="ml-2"><NavLink to="/addproduct">Add Product</NavLink></li>
     </>
     return (
         <div className="navbar bg-base-100">
@@ -28,7 +28,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 <Link to="/login">
-                    <button className="btn btn-ghost">Login</button>
+                    <button className='bg-[#E3B577] px-6 py-2 rounded-lg font-bold text-black'>Login</button>
                 </Link>
             </div>
         </div>
