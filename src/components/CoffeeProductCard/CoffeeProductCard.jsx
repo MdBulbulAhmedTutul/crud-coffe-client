@@ -2,6 +2,7 @@ import { MdDelete } from "react-icons/md";
 import { MdOutlineSecurityUpdate } from "react-icons/md";
 import { FiEye } from "react-icons/fi";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 
@@ -52,9 +53,11 @@ const CoffeeProductCard = ({ product }) => {
                     <MdDelete className=" text-2xl ml-2"></MdDelete>
                 </button>
                 <br />
-                <button data-tip="Update" className="w-10 h-10 tooltip text-white bg-black rounded-md mb-2">
-                    <MdOutlineSecurityUpdate className="text-center text-2xl ml-2"></MdOutlineSecurityUpdate>
-                </button>
+                <Link to={`/updatecoffee/${_id}`}>
+                    <button data-tip="Update" className="w-10 h-10 tooltip text-white bg-black rounded-md mb-2">
+                        <MdOutlineSecurityUpdate className="text-center text-2xl ml-2"></MdOutlineSecurityUpdate>
+                    </button>
+                </Link>
                 <br />
                 <button data-tip="Details" className="w-10 h-10 tooltip text-white bg-red-600 rounded-md">
                     <FiEye className="text-center text-2xl ml-2"></FiEye>

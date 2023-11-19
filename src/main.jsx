@@ -13,6 +13,7 @@ import Register from './components/Register/Register';
 import AddCoffee from './components/AddCoffee/AddCoffee';
 import AuthProvider from './components/provider/AuthProvider';
 import OrderPage from './components/OrderPage/OrderPage';
+import UpdateCoffee from './components/UpdareCoffee/UpdateCoffee';
 
 
 const router = createBrowserRouter([
@@ -39,6 +40,11 @@ const router = createBrowserRouter([
       {
         path: '/order',
         element: <OrderPage></OrderPage>
+      },
+      {
+        path: '/updatecoffee/:id',
+        element: <UpdateCoffee></UpdateCoffee>,
+        loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`)
       }
     ]
   },
