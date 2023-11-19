@@ -6,7 +6,7 @@ import OrderProduct from "../OrderProduct/OrderProduct";
 const Home = () => {
     return (
         <div>
-            <div>
+            <div className="">
                 <Banner></Banner>
             </div>
             <div className="bg-gray-100 py-10 my-10">

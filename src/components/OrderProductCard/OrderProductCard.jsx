@@ -2,8 +2,6 @@
 const OrderProductCard = ({ product }) => {
     // eslint-disable-next-line react/prop-types
     const { image, title, price, description } = product;
-    console.log(product)
-
     return (
         <div className="bg-white rounded-lg border-2 border-gray-200 p-2">
             <img className="w-full h-[200px]" src={image} alt="show_image" />
