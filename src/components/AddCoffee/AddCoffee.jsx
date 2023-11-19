@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 const AddCoffee = () => {
     const handleAddCoffee = event => {
         event.preventDefault();
@@ -6,13 +8,29 @@ const AddCoffee = () => {
         const chef = form.chef.value;
         const price = form.price.value;
         const photo = form.photo.value;
-        const newProduct = {
+        const newCoffee = {
             name,
             chef,
             price,
             photo,
         }
-        console.log(newProduct)
+        console.log(newCoffee)
+
+        // send data to the server
+        fetch('http://localhost:5000/coffee', {
+            method: 'POST',
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(newCoffee)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if(data.insertedId){
+                    Swal.fire("Coffee Added Successfull");
+                }
+            })
     }
     return (
         <div className="bg-gray-100 p-10 max-w-5xl mx-auto my-16">
@@ -46,7 +64,7 @@ const AddCoffee = () => {
                         <input type="text" name="photo" placeholder="Photo" className="input input-bordered" required />
                     </div>
                 </div>
-                <input className="bg-[#E3B577] px-6 py-2 rounded-lg font-bold mt-4 text-black w-full cursor-pointer" type="submit" value="Add Now"/>
+                <input className="bg-[#E3B577] px-6 py-2 rounded-lg font-bold mt-4 text-black w-full cursor-pointer" type="submit" value="Add Now" />
             </form>
         </div>
     );

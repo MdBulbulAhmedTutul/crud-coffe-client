@@ -9,7 +9,7 @@ const OrderProduct = () => {
         .then(data => setProducts(data))
     },[])
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
             {
                 products.map(product => <OrderProductCard key={product._id} product={product}></OrderProductCard>)
             }
