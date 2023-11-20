@@ -11,7 +11,10 @@ const RightSideNav = () => {
     }, [singleData])
     return (
         <div className="bg-gray-100 rounded-lg py-3">
-            <img className="" src={product.photo} alt="" />
+            <div className="flex items-center justify-between">
+                <img className="h-[190px]" src={product.photo} alt="" />
+                <img className="h-[190px]" src={product.photo} alt="" />
+            </div>
             <button className="w-full bg-[#ff3438] px-4 py-2 rounded-lg text-white font-bold">Order Now</button>
         </div>
     );
