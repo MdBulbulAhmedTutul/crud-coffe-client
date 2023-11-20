@@ -14,6 +14,8 @@ import AddCoffee from './components/AddCoffee/AddCoffee';
 import AuthProvider from './components/provider/AuthProvider';
 import OrderPage from './components/OrderPage/OrderPage';
 import UpdateCoffee from './components/UpdareCoffee/UpdateCoffee';
+import DetailsPage from './components/DetailsPage/DetailsPage';
+import PrivateRoutes from './components/privateRoutes/PrivateRoutes';
 
 
 const router = createBrowserRouter([
@@ -35,16 +37,20 @@ const router = createBrowserRouter([
       },
       {
         path: '/addproduct',
-        element: <AddCoffee></AddCoffee>
+        element: <PrivateRoutes><AddCoffee></AddCoffee></PrivateRoutes>
       },
       {
         path: '/order',
-        element: <OrderPage></OrderPage>
+        element: <PrivateRoutes><OrderPage></OrderPage></PrivateRoutes>
       },
       {
         path: '/updatecoffee/:id',
-        element: <UpdateCoffee></UpdateCoffee>,
+        element: <PrivateRoutes><UpdateCoffee></UpdateCoffee></PrivateRoutes>,
         loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`)
+      },
+      {
+        path: '/detailpage/:id',
+        element: <PrivateRoutes><DetailsPage></DetailsPage></PrivateRoutes>
       }
     ]
   },

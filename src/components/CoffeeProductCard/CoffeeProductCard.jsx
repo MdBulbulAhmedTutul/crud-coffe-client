@@ -59,9 +59,11 @@ const CoffeeProductCard = ({ product }) => {
                     </button>
                 </Link>
                 <br />
-                <button data-tip="Details" className="w-10 h-10 tooltip text-white bg-red-600 rounded-md">
-                    <FiEye className="text-center text-2xl ml-2"></FiEye>
-                </button>
+                <Link to={`/detailpage/${_id}`}>
+                    <button data-tip="Details" className="w-10 h-10 tooltip text-white bg-red-600 rounded-md">
+                        <FiEye className="text-center text-2xl ml-2"></FiEye>
+                    </button>
+                </Link>
             </div>
         </div>
     );
