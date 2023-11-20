@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginImage from '../../assets/images/login/login.svg';
 import { FaGooglePlusG } from "react-icons/fa";
 import { useContext } from "react";
@@ -7,6 +7,8 @@ import Swal from "sweetalert2";
 
 const Register = () => {
     const {createUser, updateProfilePicture, googleLogin} = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate()
 
     const handleRegisterForm = event => {
         event.preventDefault();
@@ -21,6 +23,7 @@ const Register = () => {
             console.log(result.user);
             Swal.fire("Register Successfull");
             updateProfilePicture(name, photo);
+            navigate(location?.state ? location?.state : '/');
         })
         .catch(error => {
             console.error(error);
@@ -33,6 +36,7 @@ const Register = () => {
         .then(result => {
             console.log(result.user);
             Swal.fire("Login Successfull");
+            navigate(location?.state ? location?.state : '/');
         })
         .catch(error => {
             console.error(error)
